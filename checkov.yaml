@@ -1,0 +1,17 @@
+compact: true
+quiet: false
+directory:
+  - .
+framework:
+  - terraform
+check:
+  - CKV_AZURE_1    # Ensure Azure Instance does not use basic authentication
+  - CKV_AZURE_2    # Ensure Azure managed disk is encrypted
+  - CKV_AZURE_3    # Ensure storage account has secure transfer enabled
+  - CKV_AZURE_7    # Ensure AKS cluster has Network Policy configured
+  - CKV_AZURE_8    # Ensure AKS cluster has RBAC enabled
+  - CKV_AZURE_35   # Ensure Azure Storage has 'Deny' default action
+  - CKV_AZURE_36   # Ensure storage account is configured with private endpoint
+  - CKV_AZURE_43   # Ensure the Storage Account naming adheres to naming rules
+skip-check:
+  - CKV2_AZURE_1   # Skip MFA for now (handled via PIM)
